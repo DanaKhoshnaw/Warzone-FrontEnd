@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Login</title>
+	<link
+			rel="stylesheet"
+			type="text/css"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="loginstyle.css" />
+</head>
+</head>
+<body class="background-image">
+<div>
+	<form class="form-local">
+		<div class="login-box">
+			<div class="title">
+				<label>Login</label>
+			</div>
+			<br>
+			<div class="form-group">
+				<label for="username">Username</label>
+				<input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Username">
+				<label class="error" style="color: white" id="username-error">Invalid username</label>
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" class="form-control" id="password" placeholder="Password">
+				<label class="error" style="color: white" id="password-error">Invalid password</label>
+			</div>
+			<br>
+			<div class="center-button">
+				<button type="submit" class="btn btn-primary" onclick="return login()">Submit</button>
+			</div>
+			<div class="link">
+				<a href="createAccount.html">Create an account</a>
+			</div>
+			<div class="link second-link">
+				<a href="home.html">Skip login and registration</a>
+			</div>
+		</div>
+	</form>
+</div>
+<script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+.background-image {
+    background-image: url('images/cod_warzone_banner_1_mobilev2.jpg');
+    background-size: cover;
+    height: 200px;
+}
+
+.header {
+    padding: 75px;
+    font-size: 50px;
+    color: white;
+    font-weight: 900;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar {
+    background-color: lightgray;
+}
+
+.nav-item {
+    font-weight: bold;
+}
+
+.account.collapse.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.length-name.form-control.mb-2.mr-sm-2 {
+    width: 300px;
+}
+.length-pref.form-control.mb-2.mr-sm-2 {
+    width: 200px;
+}
+
+.graphs {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    height: 400px;
+    flex-flow: wrap;
+}
+
+.user-img {
+    flex: 0 0 250px;
+    margin-left: 25px;
+    background-size: 150px;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 100%;
+}
+
+.not-found {
+    background-image: url(images/100130939-error-404-page-not-found-error-with-glitch-effect-on-screen-vector-illustration-for-your-design-.jpg);
+    background-repeat: no-repeat;
+    flex-direction: column;
+    height: 600px;
+}
+
+.required {
+    padding: 10px;
+    color: lightgray;
+}
+
+.rank-style {
+    font-size: xx-large;
+    font-weight: 700;
+    margin-left: 20px;
+    font-family: fantasy;
+    color: white;
+
+}
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+.middle-graph {
+    margin-left: 85px;
+    margin-right: 85px;
+}
+
+.banner-background {
+    color: white;
+    padding: 10px;
+}
+
+.collapse:not(.show) {
+    display:block;
+}

@@ -1,0 +1,54 @@
+.form-local {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+
+.login-box {
+    display: flex;
+    background-color: white;
+    border: 1px solid grey;
+    flex-direction: column;
+    padding: 25px;
+    width: 350px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
+    font-weight: 600;
+}
+
+.link {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.center-button {
+    justify-content: center;
+    display: flex;
+}
+
+.second-link.link {
+    margin-top: 5px;
+}
+
+.error {
+    font-size: small;
+    color: red;
+}
+
+.creds-error {
+    font-size: smaller;
+    color: lightgray;
+}
+
+.background-image {
+    background-image: url("images/AGB_WZ_0310_TOUT.jpg");
+    background-blend-mode: luminosity;
+}
