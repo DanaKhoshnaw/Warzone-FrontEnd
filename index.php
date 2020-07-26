@@ -1,5 +1,3 @@
 <?php
-
-include_once("src/home.html");
-
+include_once("src/")
 ?>
