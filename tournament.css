@@ -53,3 +53,9 @@ label {
     padding: 15px;
     width: 300px;
 }
+
+.name-box {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}

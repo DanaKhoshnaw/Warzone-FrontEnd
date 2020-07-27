@@ -39,7 +39,7 @@
 <label style="color: white; padding: 15px">Select the number of teams to participate in the tournament</label>
 <div style="display: flex; padding: 15px">
 	<form class="form-inline">
-		<select class="length-pref form-control mb-2 mr-sm-2" id="console">
+		<select class="length-pref form-control mb-2 mr-sm-2" id="number-of-people">
 			<option selected>Number Of Teams... </option>
 			<option value="1">1</option>
 			<option value="2">2</option>
@@ -58,8 +58,11 @@
 			<option value="15">15</option>
 			<option value="16">16</option>
 		</select>
-		<button type="submit" class="btn btn-primary mb-2" onclick="return getData()">GO</button>
+		<button type="submit" class="btn btn-primary mb-2" onclick="return getNames()" id="submit-bttn">GO</button>
 	</form>
+</div>
+<div id="name-inputs" class="name-box">
+
 </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
