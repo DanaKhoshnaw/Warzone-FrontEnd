@@ -1,0 +1,55 @@
+.background-image {
+    background-image: url('images/cod_warzone_banner_1_mobilev2.jpg');
+    background-size: cover;
+    height: 200px;
+}
+
+.header {
+    padding: 75px;
+    font-size: 50px;
+    color: white;
+    font-weight: 900;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar {
+    background-color: lightgray;
+}
+
+.nav-item {
+    font-weight: bold;
+}
+
+.account.collapse.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.length-name.form-control.mb-2.mr-sm-2 {
+    width: 300px;
+}
+.length-pref.form-control.mb-2.mr-sm-2 {
+    width: 200px;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+
+
+.banner-background {
+    color: white;
+    padding: 10px;
+}
+
+.collapse:not(.show) {
+    display:block;
+}
+
+label {
+    color: white;
+    padding: 15px;
+    width: 300px;
+}
