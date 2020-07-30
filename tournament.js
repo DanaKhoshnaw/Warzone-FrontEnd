@@ -1,7 +1,8 @@
 
-let numberOfPartic = document.getElementById("number-of-people").value;
+let numberOfPartic;
 
 function getNames() {
+    numberOfPartic = document.getElementById("number-of-people").value;
 
     for(let i = 0; i <= numberOfPartic; i ++) {
         let newName = document.createElement("input");
