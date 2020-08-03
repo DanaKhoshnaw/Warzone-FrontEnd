@@ -85,7 +85,6 @@ function getData() {
     let httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = function() {
         if (httpRequest.readyState === 4 && httpRequest.status === 200) {
-            //console.log(httpRequest.responseText)
             getUserStats(httpRequest.responseText)
 
         } else if(httpRequest.readyState === 4 && httpRequest.status !== 200) {

@@ -37,6 +37,9 @@ html, body {
     height: 100%;
 }
 
+.form-inline {
+    align-items: flex-start;
+}
 
 
 .banner-background {
@@ -58,4 +61,16 @@ label {
     display: flex;
     flex-direction: column;
     padding: 15px;
+}
+
+.match-up-div {
+    float: left;
+    height: 300px;
+    background-color: white;
+    margin-left: 50px;
+    margin-right: 50px;
+    display: flex;
+    flex-flow: column;
+    min-width: 500px;
+    white-space: pre;
 }

@@ -4,7 +4,7 @@ let numberOfPartic;
 function getNames() {
     numberOfPartic = document.getElementById("number-of-people").value;
 
-    for(let i = 0; i <= numberOfPartic; i ++) {
+    for(let i = 1; i <= numberOfPartic; i ++) {
         let newName = document.createElement("input");
         newName.setAttribute("id", i.toString());
         newName.setAttribute("type", "text");
@@ -31,5 +31,43 @@ function getNames() {
 }
 
 function createBracket() {
+    document.getElementById("tourn-bttn").disabled = true;
+    let playersName = []
 
+    let bracket = []
+    for(let i = 1; i <= numberOfPartic; i ++) {
+        playersName.push(document.getElementById(i.toString()).value);
+    }
+    let y = 0
+    let playersSize = playersName.length;
+    if(playersName.length %2 !== 0) {
+        let match = {
+            firstPlayer:playersName[playersName.length - 1],
+            secondPlayer:"Bye"
+        }
+        bracket.push(match)
+        playersSize = playersSize - 1;
+    }
+
+    for(let i = 1; i < playersSize; i= i + 2) {
+        let matchup = {
+            firstPlayer:playersName[y],
+            secondPlayer:playersName[i]
+        };
+        y += 2
+        bracket.push(matchup);
+    }
+    console.log(bracket);
+
+    return addToScreen(bracket);
+}
+
+function addToScreen(bracket) {
+    for(let i = 0; i < bracket.length; i ++) {
+        console.log(bracket[i].firstPlayer + " VS "+ bracket[i].secondPlayer)
+        document.getElementById("match-up").innerText += bracket[i].firstPlayer + "VS" + bracket[i].secondPlayer + "\n";
+
+
+    }
+    return false;
 }
