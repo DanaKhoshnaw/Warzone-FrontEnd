@@ -1,6 +1,7 @@
 let donutChart;
 let barGraphChart;
 let polarGraphChart;
+let winsGlobal;
 
 function getUserStats(response) {
 
@@ -20,6 +21,7 @@ function getUserStats(response) {
         let foundUserImg = foundData.data.platformInfo.avatarUrl.toString()
         let stats = foundData.data.segments[0].stats;
         let wins = stats.wins.value;
+        winsGlobal = wins;
         let gamesPlayed = stats.gamesPlayed.value;
         let top10 = stats.top10.value
         let top5 = stats.top5.value
@@ -67,6 +69,9 @@ function getData() {
     let gamerTag = document.getElementById("gamer-tag").value;
     let system = document.getElementById("console").value;
 
+
+    let leaderboardsURL = "https://api.tracker.gg/api/v1/warzone/standard/leaderboards"
+
     if(system === "Console..." || gamerTag === "") {
         return getUserStats("Empty Creds")
     }
@@ -92,11 +97,79 @@ function getData() {
 
         }
     };
+
     httpRequest.open("GET", cors + url, false);
+    httpRequest.send();
+
+    httpRequest.onreadystatechange = function() {
+        if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+            getLeaderboards(httpRequest.responseText)
+
+        } else if(httpRequest.readyState === 4 && httpRequest.status !== 200) {
+            getLeaderboards("Not Found");
+
+        }
+    };
+    httpRequest.open("GET", cors + leaderboardsURL, false);
     httpRequest.send();
     return false;
 }
 
+
+function getLeaderboards(response) {
+    let foundData = JSON.parse(response);
+    console.log(foundData)
+    let wins = foundData.data.items[0].value;
+
+    makeWinnerGraph(wins)
+    return false;
+}
+
+function makeWinnerGraph(wins) {
+    document.getElementById("last-chart").innerHTML = "<canvas id='stats'> </canvas>" ;
+    let chart = document.getElementById("stats");
+
+    barGraphChart = new Chart(chart, {
+        type: 'bar',
+        data: {
+            labels: ['Your wins', 'Top Wins'],
+            datasets: [
+                {
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(255, 206, 86, 0.8)'
+                    ],
+                    data: [winsGlobal, wins],
+                }
+            ]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            title: {
+                fontColor: 'white',
+                display: true,
+                text: 'Your wins vs Number 1 Wins in The World'
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true,
+                        fontColor: 'white'
+                    },
+                }],
+                xAxes: [{
+                    ticks: {
+                        fontColor: 'white'
+                    },
+                }]
+            }
+        }
+    });
+}
 
 function makeDonutChart(kills, deaths, downs) {
     document.getElementById("donut-chart").innerHTML ="<canvas id='k-d'> </canvas>" ;
