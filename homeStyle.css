@@ -75,8 +75,8 @@ html, body {
 }
 
 .middle-graph {
-    margin-left: 85px;
-    margin-right: 85px;
+    margin-left: 45px;
+    margin-right: 45px;
 }
 
 .banner-background {
@@ -86,4 +86,8 @@ html, body {
 
 .collapse:not(.show) {
     display:block;
+}
+
+.last-chart {
+    margin-left:30px;
 }
