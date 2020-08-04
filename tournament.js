@@ -36,6 +36,10 @@ function createBracket() {
 
     let bracket = []
     for(let i = 1; i <= numberOfPartic; i ++) {
+        if(document.getElementById(i.toString()).value === "") {
+            alert("All players must be added, please refresh the page")
+            return false;
+        }
         playersName.push(document.getElementById(i.toString()).value);
     }
     let y = 0
@@ -64,8 +68,8 @@ function createBracket() {
 
 function addToScreen(bracket) {
     for(let i = 0; i < bracket.length; i ++) {
-        console.log(bracket[i].firstPlayer + " VS "+ bracket[i].secondPlayer)
-        document.getElementById("match-up").innerText += bracket[i].firstPlayer + "VS" + bracket[i].secondPlayer + "\n";
+        console.log(bracket[i].firstPlayer + "VS"+ bracket[i].secondPlayer)
+        document.getElementById("match-up").innerText += bracket[i].firstPlayer + "                  VS                  " + bracket[i].secondPlayer + "\n";
 
 
     }
