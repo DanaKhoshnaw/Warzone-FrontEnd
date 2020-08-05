@@ -60,21 +60,19 @@ label {
 .name-box {
     display: flex;
     flex-direction: column;
-    margin-left: 30px;
+    margin-left: 15px;
 }
 
 .match-up-div {
     float: left;
     height: 300px;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 100px;
     display: flex;
     flex-flow: column;
     min-width: 500px;
-    white-space: pre;
     align-items: center;
-    font-size: 35px;
-    font-weight: 800;
+    font-size: 20px;
+    font-weight: 700;
     color: white;
 }
 
