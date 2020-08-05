@@ -2,6 +2,7 @@ let donutChart;
 let barGraphChart;
 let polarGraphChart;
 let winsGlobal;
+let notfoundFlag;
 
 function getUserStats(response) {
 
@@ -14,6 +15,8 @@ function getUserStats(response) {
     } else if(response === "Not Found") {
         alert("No User Found");
         fields.style = "color: lightgray";
+        location.reload()
+        notfoundFlag = 1;
     } else {
         fields.style = "color: lightgray";
         let foundData = JSON.parse(response);
@@ -121,6 +124,9 @@ function getLeaderboards(response) {
     console.log(foundData)
     let wins = foundData.data.items[0].value;
 
+    if(notfoundFlag === 1) {
+        return false;
+    }
     makeWinnerGraph(wins)
     return false;
 }
@@ -295,4 +301,10 @@ function makePolarChart(winLossPercentile, kDPercentile, gamesPlayedPercentile, 
             }
         }
     });
+}
+
+function helpHome() {
+    alert("Enter in a gamer tag and console type to view all the stats for a given user" +
+        " An Example GamerTag: CommanderDana and console = Xbox")
+    return false;
 }

@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="homeStyle.css" />
 </head>
 <body style="scroll-behavior: smooth; background-color: currentColor">
+<button class="feedback-button" onclick="return helpHome()">?</button>
 <div class="background-image">
 	<header class="header">Warzone Tracker</header>
 </div>
@@ -48,6 +49,7 @@
 			<option value="3">Activison</option>
 		</select>
 		<button type="submit" class="btn btn-primary mb-2" onclick="return getData()">GO</button>
+		<button type="submit" class="btn btn-primary mb-2 refresh-button" onclick="return true">Restart</button>
 	</form>
 </div>
 <div id="rank" class="rank-style"></div>

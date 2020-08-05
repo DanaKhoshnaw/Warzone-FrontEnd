@@ -67,11 +67,20 @@ function createBracket() {
 }
 
 function addToScreen(bracket) {
+    document.getElementById("match-up").innerText += "Match ups for the tournament" +"\n\n\n";
+
+
     for(let i = 0; i < bracket.length; i ++) {
         console.log(bracket[i].firstPlayer + "VS"+ bracket[i].secondPlayer)
-        document.getElementById("match-up").innerText += bracket[i].firstPlayer + "                  VS                  " + bracket[i].secondPlayer + "\n";
-
+        document.getElementById("match-up").innerText += bracket[i].firstPlayer + "" +
+            "                  VS" +
+            "                  " + bracket[i].secondPlayer + "\n";
 
     }
     return false;
+}
+
+function helpTournament() {
+    alert("Select the number of people you would like to have participate in the tournament," +
+        " once selected it will ask for the names of the players and then it will generate match ups for you")
 }
