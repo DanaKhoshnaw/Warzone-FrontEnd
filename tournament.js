@@ -79,7 +79,7 @@ function createBracket() {
 
 // Adds the players to the screen
 function addToScreen(bracket) {
-    document.getElementById("match-up").innerText += "Match ups for the tournament" +"\n\n\n";
+    document.getElementById("match-up").innerText += "Match ups for the tournament" +"\n\n";
 
 
     // Goes through the list and adds the match up to the screen
