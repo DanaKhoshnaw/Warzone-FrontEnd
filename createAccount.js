@@ -1,4 +1,5 @@
 function createAccountValidation () {
+    //Gets all the given text boxes
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
     let confirmPassword = document.getElementById("confirm-password").value;
@@ -6,12 +7,14 @@ function createAccountValidation () {
     let passwordLengthError = document.getElementById("password-length-error");
     let passwordMismatchError = document.getElementById("error-confirm");
 
+    //Length checking
     if(username.length < 6) {
         usernameLengthError.style.color = "red";
     } else {
         usernameLengthError.style.color = "lightgray";
     }
 
+    //Match checking
     if(password !== confirmPassword) {
         passwordMismatchError.innerText = "passwords do not match";
         passwordLengthError.style.color = "lightgray";

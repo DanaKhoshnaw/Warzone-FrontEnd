@@ -2,6 +2,7 @@
 let numberOfPartic;
 
 function getNames() {
+    // Gets the number of participants
     numberOfPartic = document.getElementById("number-of-people").value;
 
     if(numberOfPartic === "Number Of Teams...") {
@@ -9,6 +10,7 @@ function getNames() {
         return false;
     }
 
+    // Dynamically creates text boxes for the players to be entered
     for(let i = 1; i <= numberOfPartic; i ++) {
         let newName = document.createElement("input");
         newName.setAttribute("id", i.toString());
@@ -21,6 +23,7 @@ function getNames() {
         newNameInputs.appendChild(newName);
     }
 
+    // Creates a submit button
     let submitButton = document.createElement("button");
     submitButton.setAttribute("id", "tourn-bttn");
     submitButton.setAttribute("type", "button");
@@ -36,10 +39,12 @@ function getNames() {
 }
 
 function createBracket() {
+    // Disables the submit button
     document.getElementById("tourn-bttn").disabled = true;
     let playersName = []
 
     let bracket = []
+    // Gets all the players from the text box
     for(let i = 1; i <= numberOfPartic; i ++) {
         if(document.getElementById(i.toString()).value === "") {
             alert("All players must be added, please refresh the page")
@@ -58,6 +63,7 @@ function createBracket() {
         playersSize = playersSize - 1;
     }
 
+    // Creates the match ups
     for(let i = 1; i < playersSize; i= i + 2) {
         let matchup = {
             firstPlayer:playersName[y],
@@ -71,10 +77,12 @@ function createBracket() {
     return addToScreen(bracket);
 }
 
+// Adds the players to the screen
 function addToScreen(bracket) {
     document.getElementById("match-up").innerText += "Match ups for the tournament" +"\n\n\n";
 
 
+    // Goes through the list and adds the match up to the screen
     for(let i = 0; i < bracket.length; i ++) {
         console.log(bracket[i].firstPlayer + "VS"+ bracket[i].secondPlayer)
         document.getElementById("match-up").innerText += bracket[i].firstPlayer + "" +
@@ -85,7 +93,9 @@ function addToScreen(bracket) {
     return false;
 }
 
+// Help button to assist the user
 function helpTournament() {
     alert("Select the number of people you would like to have participate in the tournament," +
         " once selected it will ask for the names of the players and then it will generate match ups for you")
+    return false;
 }

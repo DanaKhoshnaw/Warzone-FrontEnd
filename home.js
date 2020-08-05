@@ -1,9 +1,11 @@
+//Charts to use within the home page
 let donutChart;
 let barGraphChart;
 let polarGraphChart;
 let winsGlobal;
 let notfoundFlag;
 
+//Gets the userstats onto the screen from the API response fetched
 function getUserStats(response) {
 
     let fields = document.getElementById("required-fields")
@@ -52,13 +54,17 @@ function getUserStats(response) {
 
         rankSection.innerText = "Rank: " + rank.toString();
 
+        //Makes the needeed graphs
         makeBarGraph(wins, top5, top10, top25, gamesPlayed);
-        makeDonutChart(kills, deaths, downs);
-        makePolarChart(winLossPercentile, kDPercentile, gamesPlayedPercentile, scorePerMinPercentile, contractsPercentile);
+        makeDoughnutChart(kills, deaths, downs);
+        makePolarChart(winLossPercentile, kDPercentile,
+            gamesPlayedPercentile, scorePerMinPercentile, contractsPercentile);
 
-        document.getElementById("banner").innerText = " KD: " + kd.toString() + " ----- Kills: " + kills.toString()
+        document.getElementById("banner").innerText = " KD: "
+            + kd.toString() + " ----- Kills: " + kills.toString()
             + " ----- Deaths: " + deaths.toString() + " ----- Win/Loss: " +
-            winlossRatio.toString() + " ----- Wins: " + wins.toString() + " ----- Games Played: " + gamesPlayed.toString();
+            winlossRatio.toString() + " ----- Wins: " + wins.toString()
+            + " ----- Games Played: " + gamesPlayed.toString();
         document.getElementById("banner").className = "banner-background"
 
         userImg.style = "background-image: url(" + foundUserImg + ")";
@@ -66,15 +72,20 @@ function getUserStats(response) {
     return false;
 }
 
+
+//Fetches the data from the warzone API using a proxy
 function getData() {
+    //Proxy to get around cors issue
     let cors = "https://cors-anywhere.herokuapp.com/"
     let url;
     let gamerTag = document.getElementById("gamer-tag").value;
     let system = document.getElementById("console").value;
 
 
+    //Leaderboards URL
     let leaderboardsURL = "https://api.tracker.gg/api/v1/warzone/standard/leaderboards"
 
+    //Checks for entered info
     if(system === "Console..." || gamerTag === "") {
         return getUserStats("Empty Creds")
     }
@@ -90,6 +101,8 @@ function getData() {
             + "atvi" + '/' + gamerTag.toString();
     }
 
+    // Uses XMLHttpRequest to make the API call with the users
+    // console and gamertag
     let httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = function() {
         if (httpRequest.readyState === 4 && httpRequest.status === 200) {
@@ -104,6 +117,7 @@ function getData() {
     httpRequest.open("GET", cors + url, false);
     httpRequest.send();
 
+    //Gets the top leaderboards to use and compare the current user to
     httpRequest.onreadystatechange = function() {
         if (httpRequest.readyState === 4 && httpRequest.status === 200) {
             getLeaderboards(httpRequest.responseText)
@@ -119,6 +133,8 @@ function getData() {
 }
 
 
+// Creates the graph for showcasing the difference between the users win
+// and top wins in the world
 function getLeaderboards(response) {
     let foundData = JSON.parse(response);
     console.log(foundData)
@@ -131,6 +147,7 @@ function getLeaderboards(response) {
     return false;
 }
 
+// Graph comparing the users wins and the worlds number 1 players wins
 function makeWinnerGraph(wins) {
     document.getElementById("last-chart").innerHTML = "<canvas id='stats'> </canvas>" ;
     let chart = document.getElementById("stats");
@@ -177,7 +194,8 @@ function makeWinnerGraph(wins) {
     });
 }
 
-function makeDonutChart(kills, deaths, downs) {
+// Makes a doughnut Chart to showcase the amount of kills, deaths and downs the users has
+function makeDoughnutChart(kills, deaths, downs) {
     document.getElementById("donut-chart").innerHTML ="<canvas id='k-d'> </canvas>" ;
     let chart = document.getElementById("k-d");
     donutChart = new Chart(chart, {
@@ -219,6 +237,8 @@ function makeDonutChart(kills, deaths, downs) {
     });
 }
 
+
+// Creates a bar graph showing how many wins, top5, top10 and games played the user has
 function makeBarGraph(wins, top5, top10, top25, gamesplayed) {
     document.getElementById("bar-graph").innerHTML = "<canvas id='win-loss'> </canvas>" ;
     let chart = document.getElementById("win-loss");
@@ -268,7 +288,11 @@ function makeBarGraph(wins, top5, top10, top25, gamesplayed) {
     });
 }
 
-function makePolarChart(winLossPercentile, kDPercentile, gamesPlayedPercentile, scorePerMinPercentile, contractsPercentile) {
+
+// Creates a polar chart showcasing the users percentile in KD, winLoss,
+// gamesPlayed, score per min and contracts
+function makePolarChart(winLossPercentile, kDPercentile, gamesPlayedPercentile,
+                        scorePerMinPercentile, contractsPercentile) {
    document.getElementById("polar-chart").innerHTML = "<canvas id='over-all'> </canvas>";
     let chart = document.getElementById("over-all");
 
@@ -303,8 +327,9 @@ function makePolarChart(winLossPercentile, kDPercentile, gamesPlayedPercentile, 
     });
 }
 
+//Help info for the user when they don't know how to use it
 function helpHome() {
     alert("Enter in a gamer tag and console type to view all the stats for a given user" +
-        " An Example GamerTag: CommanderDana and console = Xbox")
+        " An Example GamerTag: CommanderDana and console - Xbox")
     return false;
 }
