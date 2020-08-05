@@ -85,9 +85,8 @@ function addToScreen(bracket) {
     // Goes through the list and adds the match up to the screen
     for(let i = 0; i < bracket.length; i ++) {
         console.log(bracket[i].firstPlayer + "VS"+ bracket[i].secondPlayer)
-        document.getElementById("match-up").innerText += bracket[i].firstPlayer + "" +
-            "                  VS" +
-            "                  " + bracket[i].secondPlayer + "\n";
+        document.getElementById("match-up").innerText += bracket[i].firstPlayer +
+            " VS " + bracket[i].secondPlayer + "\n";
 
     }
     return false;
