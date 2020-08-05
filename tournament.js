@@ -4,6 +4,11 @@ let numberOfPartic;
 function getNames() {
     numberOfPartic = document.getElementById("number-of-people").value;
 
+    if(numberOfPartic === "Number Of Teams...") {
+        alert("Select the number of players to participate in the tournament to continue")
+        return false;
+    }
+
     for(let i = 1; i <= numberOfPartic; i ++) {
         let newName = document.createElement("input");
         newName.setAttribute("id", i.toString());
