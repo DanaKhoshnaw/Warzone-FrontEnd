@@ -10,3 +10,5 @@ https://warzonetracker.herokuapp.com/
 3. https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Backgrounds_and_Borders/Resizing_background_images
 4. https://getbootstrap.com/docs/4.0/components/forms/
 5. https://stackoverflow.com/
+6. https://stackoverflow.com/questions/29670703/how-to-use-cors-anywhere-to-reverse-proxy-and-add-cors-headers
+7. https://www.chartjs.org/docs/latest/
