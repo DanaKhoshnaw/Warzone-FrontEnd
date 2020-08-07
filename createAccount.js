@@ -29,3 +29,10 @@ function createAccountValidation () {
     return false;
 
 }
+
+function returnToHome() {
+
+    location.href = "home.html";
+
+    return false;
+}
