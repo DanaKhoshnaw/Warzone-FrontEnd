@@ -101,3 +101,30 @@ label {
 .feedback-button:active {
     background: black;
 }
+
+.body-style {
+    scroll-behavior: smooth;
+    background-color: currentColor
+}
+
+.input-area {
+    display: flex;
+    padding: 15px;
+    flex-flow: column;
+}
+
+.label {
+    color: white;
+    padding: 15px;
+}
+
+.submit-button {
+    background-color: white;
+    color:black;
+}
+
+.results {
+    display: flex;
+    margin-left: 20px;
+    flex-wrap: wrap;
+}

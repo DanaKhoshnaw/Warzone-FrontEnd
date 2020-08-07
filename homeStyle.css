@@ -75,6 +75,19 @@ html, body {
     height: 100%;
 }
 
+.body-style {
+    scroll-behavior: smooth;
+    background-color: currentColor;
+}
+.submit-button {
+    background-color: white;
+    color:black;
+}
+.image-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .middle-graph {
     margin-left: 15px;
     margin-right: 15px;

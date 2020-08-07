@@ -11,7 +11,7 @@
 			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="homeStyle.css" />
 </head>
-<body style="scroll-behavior: smooth; background-color: currentColor">
+<body class="body-style">
 <button class="feedback-button" onclick="return helpHome()">?</button>
 <div class="background-image ">
 	<header class="header">Warzone Tracker</header>
@@ -39,7 +39,7 @@
 	</div>
 </nav>
 <br>
-<div style="display: flex;flex-wrap: wrap;">
+<div class="image-info">
 	<div id="user-img-loc" class="user-img"> </div>
 	<form class="form-inline" style="justify-content: center;">
 		<label for="gamer-tag" class="required" id="required-fields">Required Fields</label>
@@ -51,7 +51,7 @@
 			<option value="2">Xbox</option>
 			<option value="3">Activison</option>
 		</select>
-		<button style="background-color: white; color:black;" type="submit" class="btn btn-primary mb-2" onclick="return getData()">GO</button>
+		<button type="submit" class="btn btn-primary mb-2 submit-button" onclick="return getData()">GO</button>
 	</form>
 </div>
 <div id="rank" class="rank-style"></div>

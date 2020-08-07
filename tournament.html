@@ -11,7 +11,7 @@
 			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="tournament.css" />
 </head>
-<body style="scroll-behavior: smooth; background-color: currentColor">
+<body class="body-style">
 <button class="material-icons feedback-button" onclick="return helpTournament()">?</button>
 <div class="background-image">
 	<header class="header">Warzone Tracker</header>
@@ -39,8 +39,8 @@
 	</div>
 </nav>
 <br>
-<div style="display: flex; padding: 15px;flex-flow: column;">
-	<label style="color: white; padding: 15px">Select the number of teams to participate in the tournament</label>
+<div class="input-area">
+	<label class="label">Select the number of teams to participate in the tournament</label>
 	<form class="form-inline" style="padding: 20px;">
 		<select class="length-pref form-control mb-2 mr-sm-2" id="number-of-people" aria-label="number of people">
 			<option selected>Number Of Teams... </option>
@@ -61,16 +61,15 @@
 			<option value="15">15</option>
 			<option value="16">16</option>
 		</select>
-		<button style="background-color: white; color:black;" type="submit" class="btn btn-primary mb-2" onclick="return getNames()" id="submit-bttn">GO</button>
+		<button type="submit" class="btn btn-primary mb-2 submit-button" onclick="return getNames()" id="submit-bttn">GO</button>
 	</form>
 </div>
 <div>
-	<div style="display: flex; margin-left: 20px;flex-wrap: wrap;">
+	<div class="results">
 	<div id="name-inputs" class="name-box"> </div>
 	<div id="match-up" class="match-up-div"></div>
 	</div>
 </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="tournament.js"></script>
 </html>

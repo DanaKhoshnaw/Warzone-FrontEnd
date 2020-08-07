@@ -76,6 +76,7 @@ function getUserStats(response) {
 //Fetches the data from the warzone API using a proxy
 function getData() {
     //Proxy to get around cors issue
+    document.getElementById("banner").innerText = "Loading Data"
     let cors = "https://cors-anywhere.herokuapp.com/"
     let url;
     let gamerTag = document.getElementById("gamer-tag").value;
